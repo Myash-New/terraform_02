@@ -64,10 +64,12 @@ resources {
     nat       = var.vm_web_nat    
   }
 
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-  }
+#  metadata = {
+#    serial-port-enable = 1
+#    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
+#  }
+
+metadata = local.full_metadata
 
 zone = var.web_zone
 }
@@ -123,10 +125,12 @@ resources {
     subnet_id = yandex_vpc_subnet.db.id
     nat       = var.vm_db_nat
   }
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-  }
+ # metadata = {
+ #   serial-port-enable = 1
+ #   ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
+ # }
+ 
+  metadata = local.full_metadata
 
   zone = var.db_zone
 }

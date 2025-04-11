@@ -21,7 +21,6 @@ variable "vms_resources" {
   }
 }
 
-
 ###cloud web vars
 
 variable "vpc_name" {
